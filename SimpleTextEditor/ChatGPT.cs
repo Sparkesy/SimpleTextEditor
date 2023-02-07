@@ -284,6 +284,9 @@ namespace SimpleTextEditor
                 cbModel.Items.Add(oItem.Key);
         }
 
-
+        private void ChatGPT_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

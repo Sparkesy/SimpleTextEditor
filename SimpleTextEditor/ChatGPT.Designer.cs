@@ -253,7 +253,9 @@
             this.Controls.Add(this.btnSend);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChatGPT";
+            this.ShowInTaskbar = false;
             this.Text = "Special Menu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChatGPT_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
