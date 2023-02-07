@@ -1,6 +1,17 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace SimpleTextEditor
 {
@@ -47,7 +58,7 @@ namespace SimpleTextEditor
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 {
-                    textBox1.Text = File.ReadAllText(openFile.FileName);
+                    textBox1.Text = System.IO.File.ReadAllText(openFile.FileName);
                 }
 
             }
@@ -75,23 +86,7 @@ namespace SimpleTextEditor
             textBox1.Text = Clipboard.GetText();
         }
 
-        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.FontDialog dlg = new System.Windows.Forms.FontDialog();
-            dlg.ShowDialog();
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Font = dlg.Font;
-                string fontName;
-                float fontSize;
-                fontName = dlg.Font.Name;
-                fontSize = dlg.Font.Size;
-                MessageBox.Show(fontName + "    " + fontSize);
-                
-            }
-            
-        }
+        
         private void exit()
         {
             // save or discard popup
@@ -129,6 +124,37 @@ namespace SimpleTextEditor
         private void SimpleTextEditor_FormClosed(object sender, FormClosedEventArgs e)
         {
             exit();
+        }
+
+        private void fontToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            System.Windows.Forms.FontDialog dlg = new System.Windows.Forms.FontDialog();
+            dlg.ShowDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Font = dlg.Font;
+                string fontName;
+                float fontSize;
+                fontName = dlg.Font.Name;
+                fontSize = dlg.Font.Size;
+                MessageBox.Show(fontName + "    " + fontSize);
+
+            }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //open the chatgpt form as a dialog
+            ChatGPT chatgpt = new ChatGPT();
+            chatgpt.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // about program messagebox with icon
+            MessageBox.Show("SparkPad v1.0.0.0", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
         }
     }
 }
