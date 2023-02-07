@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Speech.Synthesis;
 using System.Speech.Recognition;
-using static System.Net.WebRequestMethods;
+using System.Speech.Synthesis;
+using System.Windows.Forms;
 
 namespace SimpleTextEditor
 {
@@ -34,8 +27,8 @@ namespace SimpleTextEditor
 
             if (sApiKey == "")
             {
-                MessageBox.Show("Please enter your OpenAI API key in the App.config file.");
-                System.Windows.Forms.Application.Exit();
+                MessageBox.Show("Please enter your OpenAI API key in the box provided a.");
+
             }
             else
             {
